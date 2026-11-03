@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="天主教主日感恩祭典：甲年、乙年、丙年讀經一、讀經二、福音、內容整理與 YouTube 靈修影片。" />
+  <title>天主教主日感恩祭典｜甲年・乙年・丙年</title>
+  <style>
+    :root{
+      --bg:#fbf9f4;--card:#fff;--ink:#29352f;--muted:#6f7772;--line:#e7dfd2;
+      --gold:#9a6b25;--gold2:#c79a4c;--gold-soft:#f5ead7;--green:#3f5d4c;
+      --purple:#624b73;--purple-soft:#eee7f3;--rose:#8b5f61;--shadow:0 10px 30px rgba(35,45,40,.08);
+      --radius:18px;
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;background:linear-gradient(180deg,#f7f1e6 0,var(--bg) 320px);color:var(--ink);
+      font-family:"Noto Serif TC","PingFang TC","Microsoft JhengHei",serif;line-height:1.75}
+    a{color:var(--gold);text-decoration:none} a:hover{text-decoration:underline}
+    button,input,select,textarea{font:inherit}
+    [hidden]{display:none!important}
+    .wrap{width:min(1180px,calc(100% - 32px));margin:0 auto}
+    header{padding:18px 0 34px;text-align:center}
+    .top-nav{position:sticky;top:0;z-index:50;display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap;
+      padding:12px 0;margin-bottom:24px;background:rgba(247,241,230,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+    .top-nav a,.top-nav button{border:1.5px solid var(--gold);background:#fff;color:var(--green);border-radius:999px;
+      padding:8px 15px;font-weight:800;cursor:pointer;box-shadow:0 4px 13px rgba(38,51,45,.09)}
+    .eyebrow{display:inline-block;padding:6px 12px;border:1px solid #d8c7a6;border-radius:999px;color:var(--gold);
+      background:rgba(255,255,255,.65);font-size:.85rem;letter-spacing:.08em}
+    h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.2;margin:17px 0 8px;color:#2f493c}
+    .subtitle{color:var(--gold);font-size:clamp(1rem,2vw,1.18rem);margin:0 0 8px}
+    .tagline{color:var(--purple);font-weight:800;margin:0}
+    .year-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:22px auto 14px;max-width:760px}
+    .year-tab{border:1.5px solid #ccb98e;background:#fff;color:var(--green);padding:12px;border-radius:14px;font-weight:900;cursor:pointer}
+    .year-tab.active{background:linear-gradient(135deg,var(--green),#567864);color:#fff;border-color:var(--green);box-shadow:var(--shadow)}
+    .toolbar{position:sticky;top:62px;z-index:40;background:rgba(251,249,244,.95);backdrop-filter:blur(8px);border-block:1px solid var(--line);padding:12px 0}
+    .toolbar-inner{display:grid;grid-template-columns:minmax(230px,1fr) 190px auto auto;gap:10px;align-items:center}
+    .toolbar input,.toolbar select{width:100%;border:1px solid #d8d0c2;background:#fff;padding:10px 12px;border-radius:11px;color:var(--ink)}
+    .toolbar button,.admin-actions button,.reading-actions button,.add-btn{border:1px solid #cbb489;background:#fff;color:var(--green);
+      padding:9px 13px;border-radius:10px;cursor:pointer;font-weight:750}
+    .toolbar button:hover,.admin-actions button:hover,.reading-actions button:hover,.add-btn:hover{background:var(--gold-soft)}
+    main{padding:28px 0 64px}
+    .year-intro{background:linear-gradient(135deg,#fff,#fbf6ed);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;margin-bottom:18px;box-shadow:var(--shadow)}
+    .year-intro strong{color:var(--green)}
+    .season-section{margin:28px 0 40px;scroll-margin-top:140px}
+    .season-heading{display:flex;align-items:center;gap:14px;margin:0 0 14px;padding:14px 18px;border-radius:16px;border:1px solid var(--line);box-shadow:0 6px 20px rgba(35,45,40,.05)}
+    .season-icon{font-size:1.45rem;line-height:1}
+    .season-heading h2{margin:0;font-size:clamp(1.25rem,2.5vw,1.65rem);line-height:1.25}
+    .season-heading p{margin:3px 0 0;color:var(--muted);font-size:.92rem}
+    .season-heading.advent{background:linear-gradient(135deg,#f2ebf5,#fff);border-left:6px solid #765185}
+    .season-heading.christmas{background:linear-gradient(135deg,#fff8df,#fff);border-left:6px solid #d0a33e}
+    .season-heading.lent{background:linear-gradient(135deg,#eee8f2,#fff);border-left:6px solid #674a78}
+    .season-heading.easter{background:linear-gradient(135deg,#fff9e9,#fff);border-left:6px solid #d9aa3d}
+    .season-heading.ordinary{background:linear-gradient(135deg,#eaf3ed,#fff);border-left:6px solid #4d755d}
+    .season-empty{padding:16px 18px;border:1px dashed #d7cdbf;border-radius:14px;color:var(--muted);background:rgba(255,255,255,.62);font-size:.94rem}
+    .season-note{margin:-4px 0 14px;padding:10px 14px;border-radius:12px;background:#fbf7ee;color:#6c675f;font-size:.91rem}
+    .empty{padding:34px;text-align:center;background:#fff;border:1px dashed #cbbda7;border-radius:var(--radius);color:var(--muted)}
+    details.mass{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);margin:0 0 16px;box-shadow:var(--shadow);overflow:hidden}
+    details.mass>summary{list-style:none;cursor:pointer;padding:18px 20px;display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center}
+    details.mass>summary::-webkit-details-marker{display:none}
+    .mass-badge{min-width:74px;text-align:center;padding:9px 12px;border-radius:13px;background:var(--purple-soft);color:var(--purple);font-weight:900}
+    .mass-title{font-size:1.15rem;font-weight:900;color:var(--green)}
+    .mass-sub{font-size:.91rem;color:var(--muted);margin-top:2px}
+    .chev{font-size:1.2rem;color:var(--gold);transition:.2s transform} details[open] .chev{transform:rotate(90deg)}
+    .mass-body{padding:0 20px 20px;border-top:1px solid var(--line)}
+    .mass-summary{margin:14px 0 16px;padding:12px 14px;border-radius:12px;background:#fbf7ee;color:#5d625f}
+    .readings{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .reading{border:1px solid var(--line);border-radius:15px;padding:16px;background:#fff;min-width:0}
+    .reading-head{display:flex;justify-content:space-between;gap:8px;align-items:start;margin-bottom:8px}
+    .reading-type{font-size:1.03rem;font-weight:950;color:var(--purple)}
+    .source{font-weight:900;color:var(--gold);margin:5px 0 10px;word-break:break-word}
+    .content{white-space:pre-wrap;color:#46504b;min-height:5.2em}
+    .yt-link{display:inline-flex;align-items:center;gap:6px;margin-top:12px;padding:8px 11px;border-radius:999px;background:#fff3ef;border:1px solid #efc8bc;color:#9a4638;font-weight:850}
+    .yt-empty{margin-top:12px;color:#a39a8e;font-size:.9rem}
+    .admin-bar{margin:18px auto 0;background:#fff7dd;border:1px solid #dbc17b;border-radius:15px;padding:14px 16px;display:flex;justify-content:space-between;gap:12px;align-items:center}
+    .admin-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+    .admin-note{color:#6d5a31;font-size:.92rem}
+    .edit-grid{display:grid;gap:8px;margin-top:10px}
+    .edit-grid input,.edit-grid textarea,.mass-edit input,.mass-edit textarea,.mass-edit select{width:100%;border:1px solid #cfc5b6;border-radius:9px;padding:9px;background:#fff;color:var(--ink)}
+    .edit-grid textarea{min-height:160px;resize:vertical}.mass-edit textarea{min-height:80px;resize:vertical}
+    .reading-actions{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+    .danger{color:#9a3838!important;border-color:#ddb4b4!important}.danger:hover{background:#fff0f0!important}
+    .add-zone{margin:16px 0 22px;text-align:right}
+    dialog{border:0;border-radius:18px;padding:0;width:min(92vw,720px);box-shadow:0 22px 70px rgba(0,0,0,.24)}
+    dialog::backdrop{background:rgba(20,30,25,.48);backdrop-filter:blur(3px)}
+    .dialog-inner{padding:24px;background:#fff;border-radius:18px}.dialog-inner h2{margin:0 0 10px;color:var(--green)}
+    .dialog-inner .meta{margin-top:15px;padding:13px 15px;background:#fbf7ee;border-radius:12px;color:#595f5b}
+    .dialog-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}.close-btn{border:1px solid #cbb489;background:#fff;color:var(--green);border-radius:10px;padding:8px 14px;cursor:pointer}
+    .login-input{width:100%;padding:11px 12px;border:1px solid #d8d3c7;border-radius:10px;margin:8px 0}.admin-error{min-height:1.4em;color:#a33636;font-size:.9rem}
+    footer{padding:30px 0 44px;text-align:center;color:var(--muted);border-top:1px solid var(--line)}
+    footer strong{color:var(--green)}
+    .small{font-size:.88rem;color:var(--muted)}
+    @media(max-width:900px){.readings{grid-template-columns:1fr}.toolbar-inner{grid-template-columns:1fr 1fr}.toolbar{top:58px}}
+    details.mass.pending{opacity:.82}
+    details.mass.pending .mass-badge{background:#f2eee6;color:#8a7c67;border-color:#d9cfbf}
+    details.mass.pending .mass-title::after{content:" · 資料待補";font-size:.78em;color:var(--muted);font-weight:600}
+    @media(max-width:650px){.wrap{width:min(100% - 20px,1180px)}header{padding-top:6px}.top-nav{justify-content:center;top:0}.top-nav a,.top-nav button{min-width:0;padding:7px 11px;font-size:.9rem}.year-tabs{grid-template-columns:1fr 1fr}.toolbar{position:static}.toolbar-inner{grid-template-columns:1fr}.mass-badge{min-width:62px}.mass-title{font-size:1.03rem}details.mass>summary{padding:14px 12px;gap:9px}.mass-body{padding:0 12px 14px}.admin-bar{display:block}.admin-actions{justify-content:flex-start;margin-top:10px}}
+    @media print{.top-nav,.toolbar,.admin-bar,.add-zone,.reading-actions{display:none!important}details.mass{break-inside:avoid;box-shadow:none}details.mass>.mass-body{display:block!important}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav class="top-nav" aria-label="主要導覽">
+      <a href="https://www.hyloveclub.com" target="_blank" rel="noopener">🏠 Home</a>
+      <button id="seriesBtn" type="button">📘 系列說明</button>
+      <button id="adminBtn" type="button">🔐 管理員</button>
+    </nav>
+    <div class="eyebrow">CATHOLIC SUNDAY MASS · THREE-YEAR LECTIONARY CYCLE</div>
+    <h1>天主教主日感恩祭典</h1>
+    <p class="subtitle">Catholic Sunday Mass Readings · 甲年 Year A ・乙年 Year B ・丙年 Year C</p>
+    <p class="tagline">聖言 · 默想 · 生活 · 祈禱</p>
+    <div class="year-tabs" role="tablist" aria-label="禮儀年">
+      <button class="year-tab active" data-year="A">甲年 Year A</button>
+      <button class="year-tab" data-year="B">乙年 Year B</button>
+      <button class="year-tab" data-year="C">丙年 Year C</button>
+      <button class="year-tab" data-year="FEAST">節日 Feasts</button>
+    </div>
+  </div>
+</header>
+
+<dialog id="seriesDialog">
+  <div class="dialog-inner">
+    <h2>系列說明</h2>
+    <p>《天主教主日感恩祭典》依羅馬天主教主日讀經三年循環整理，分為甲年、乙年、丙年。每一主日收錄讀經一、讀經二與福音的經文來源、靈修內容整理，以及對應的 YouTube 影片連結。</p>
+    <p>本網站以「聖言 → 理解 → 反省 → 生活實踐」為方向，方便主日前預習、彌撒後複習，以及個人靜心與團體分享。未完成或尚未確認的資料不以推測補寫，可透過管理員模式逐步新增。</p>
+    <div class="meta">
+      <strong>Supervised by:</strong> Fr. Rocco<br>
+      <strong>Web &amp; Video Created by:</strong> Dr. Maria R. Lee
+    </div>
+    <div class="meta"><strong>說明：</strong>「內容」欄以原創摘要／默想為主，不重製完整聖經譯文；經文正文請以正式天主教聖經及當地主教團禮儀用書為準。</div>
+    <div class="dialog-actions"><button id="seriesClose" class="close-btn">關閉</button></div>
+  </div>
+</dialog>
+
+<dialog id="adminDialog">
+  <div class="dialog-inner">
+    <h2>網站管理員登入</h2>
+    <p>此功能僅供網站管理員使用。登入後可編輯主日名稱、季節、三篇讀經的經文來源、內容與 YouTube 網址，也可新增主日並下載更新後的網站檔案。</p>
+    <input id="adminPassword" class="login-input" type="password" autocomplete="current-password" placeholder="Password" />
+    <div id="adminError" class="admin-error"></div>
+    <div class="meta small">此為靜態網站的便利編輯鎖，不是伺服器級安全機制；公開部署的 HTML 原始碼仍可被檢視。</div>
+    <div class="dialog-actions"><button id="adminCancel" class="close-btn">取消</button><button id="adminUnlock" class="close-btn">進入編輯</button></div>
+  </div>
+</dialog>
+
+<div class="toolbar">
+  <div class="wrap toolbar-inner">
+    <input id="search" type="search" placeholder="搜尋：常年期第30主日、瑪 22、愛主愛人…" aria-label="搜尋" />
+    <select id="seasonFilter" aria-label="禮儀期"><option value="">全部禮儀期</option></select>
+    <button id="openAll">全部展開</button>
+    <button id="closeAll">全部收合</button>
+  </div>
+</div>
+
+<div class="wrap">
+  <div id="adminBar" class="admin-bar" hidden>
+    <div>
+      <strong>🔓 網站管理員專用</strong>
+      <div class="admin-note">此區只會在管理員登入後顯示，一般訪客看不到。修改後先「儲存修改」，再「下載更新網站」；YouTube 尚未完成可保持空白。</div>
+    </div>
+    <div class="admin-actions">
+      <button id="saveData">💾 儲存修改</button>
+      <button id="downloadHtml">⬇ 下載更新網站</button>
+      <button id="exitAdmin">🔒 離開管理模式</button>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+  <section id="yearIntro" class="year-intro"></section>
+  <div id="addZone" class="add-zone" hidden><button id="addMass" class="add-btn">＋ 新增本禮儀年主日／節日</button></div>
+  <div id="masses"></div>
+</main>
+
+<footer>
+  <div class="wrap">
+    天主教主日感恩祭典 · 甲年／乙年／丙年<br />
+    <strong>在聖言中聆聽，在生活中回應</strong>
+  </div>
+</footer>
+
+<script>
+const ADMIN_PASSWORD_HASH = 'b5b02791f0c30b7cb75416437717537e78cebb83c186c08d743f0021ca5ee085';
+const STORAGE_KEY = 'catholic-sunday-mass-abc-v3';
+
+async function sha256Hex(text){
+  if(!window.crypto || !window.crypto.subtle) throw new Error('Web Crypto unavailable');
+  const bytes = new TextEncoder().encode(text);
+  const digest = await window.crypto.subtle.digest('SHA-256', bytes);
+  return Array.from(new Uint8Array(digest)).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+
+const BASE_DATA = [
+  {
+    "id": "A-OT1",
+    "year": "A",
+    "season": "聖誕期",
+    "title": "主受洗節（常年期第1主日）",
+    "summary": "耶穌在約但河受洗，顯示祂與人類同行並開始公開使命；我們也在洗禮中領受天主子女的身分與使命。",
+    "readings": [
+      {
+        "type": "讀經一",
+        "source": "依撒意亞先知書 42:1–4, 6–7",
+        "content": "上主的僕人以溫良與忠信帶來正義，成為萬民的光。天主的使命不是靠強權，而是以服務、醫治與釋放彰顯祂的救恩。",
+        "youtube": ""
+      },
+      {
+        "type": "讀經二",
+        "source": "宗徒大事錄 10:34–38",
+        "content": "伯多祿宣告天主不偏待人；耶穌受聖神傅油，到處施恩行善。受洗的生命也蒙召讓天主的善在世界中被看見。",
+        "youtube": ""
+      },
+      {
+        "type": "福音",
+        "source": "聖瑪竇福音 3:13–17",
+        "content": "耶穌接受若翰的洗禮，天開了，聖神降臨，父宣告祂是愛子。基督徒也在洗禮中重新確認：我是天主所愛的人，也被派遣活出福音。",
+        "youtube": ""
+      }
+    ]
+  },
+  {
+    "id": "A-OT2",
+    "year": "A",
+    "season": "常年期",
+    "title": "常年期第2主日",
+    "summary": "洗者若翰指出耶穌是除免世罪的天主羔羊；被召成聖的人，也蒙召把基督的光帶向萬民。",
+    "readings": [
+      {
+        "type": "讀經一",
+        "source": "依撒意亞先知書 49:3, 5–6",
+        "content": "天主的僕人不只為復興以色列，更要成為萬民之光。天主的救恩不封閉於少數人，而要照耀世界。",
+        "youtube": ""
+      },
+      {
+        "type": "讀經二",
+        "source": "聖保祿宗徒致格林多人前書 1:1–3",
+        "content": "保祿提醒信友：我們在基督內蒙召成聖。基督徒的身分不是自我成就，而是回應天主召叫，在恩寵與平安中生活。",
+        "youtube": ""
+      },
+      {
+        "type": "福音",
+        "source": "聖若望福音 1:29–34",
+        "content": "洗者若翰指向耶穌：「看，天主的羔羊。」真正的門徒不把焦點留在自己身上，而是幫助人認出基督、跟隨基督。",
+        "youtube": ""
+      }
+    ]
+  },
+  {
+    "id": "A-OT3",
+    "year": "A",
+    "season": "常年期",
+    "title": "常年期第3主日",
+    "summary": "在黑暗中升起大光；耶穌宣講天國、召叫門徒，也召叫教會超越分裂，在同一位基督內同行。",
+    "readings": [
+      {
+        "type": "讀經一",
+        "source": "依撒意亞先知書 8:23b–9:3",
+        "content": "生活在黑暗中的人民看見了大光。天主能在恐懼、壓迫與失望中開啟新的黎明，使人重新得到喜樂與希望。",
+        "youtube": ""
+      },
+      {
+        "type": "讀經二",
+        "source": "聖保祿宗徒致格林多人前書 1:10–13, 17",
+        "content": "保祿勸勉教會不要因人物與派別而分裂。信仰的中心不是「我屬於誰的陣營」，而是共同屬於被釘十字架的基督。",
+        "youtube": ""
+      },
+      {
+        "type": "福音",
+        "source": "聖瑪竇福音 4:12–23",
+        "content": "耶穌開始宣講「天國臨近了」，並召叫伯多祿等人跟隨祂。門徒的第一步，是聽見召叫後願意離開舊有安全感，走上新的使命道路。",
+        "youtube": ""
+      }
+    ]
+  },
+  {
+    "id": "A-OT4",
+    "year": "A",
+    "season": "常年期",
+    "title": "常年期第4主日",
+    "summary": "天主喜愛謙遜而信賴祂的人；真福八端顛覆世界的成功標準，指出天國真正的幸福道路。",
+    "readings": [
+      {
+        "type": "讀經一",
+        "source": "索福尼亞先知書 2:3; 3:12–13",
+        "content": "先知邀請人尋求上主、正義與謙遜。真正有希望的餘民不是依靠權勢，而是在天主內尋得庇護。",
+        "youtube": ""
+      },
+      {
+        "type": "讀經二",
+        "source": "聖保祿宗徒致格林多人前書 1:26–31",
+        "content": "天主常揀選世人眼中弱小、卑微的，使人不能因自己而自誇。基督徒真正的智慧、正義與聖化都來自基督。",
+        "youtube": ""
+      },
+      {
+        "type": "福音",
+        "source": "聖瑪竇福音 5:1–12a",
+        "content": "真福八端重新定義幸福：神貧、溫良、憐憫、心潔、締造和平與為義堅持的人，在天主內是真正有福的。",
+        "youtube": ""
+      }
+    ]
+  },
+  {
+    "id": "A-OT5",
+    "year": "A",
+    "season": "常年期",
+    "title": "常年期第5主日",
+    "summary": "基督徒是地上的鹽、世界的光；真正的信仰要化成照顧弱小、活出正義並讓人看見天主的善。",
+    "readings": [
+      {
+        "type": "讀經一",
+        "source": "依撒意亞先知書 58:7–10",
+        "content": "真正的敬拜不能與愛人分開：分享食物、接納無家者、照顧困苦的人，生命的光才會在黑暗中升起。",
+        "youtube": ""
+      },
+      {
+        "type": "讀經二",
+        "source": "聖保祿宗徒致格林多人前書 2:1–5",
+        "content": "保祿傳福音不依靠華麗辭藻，而依靠十字架與聖神的德能。信德的根基不是人的表現，而是天主的力量。",
+        "youtube": ""
+      },
+      {
+        "type": "福音",
+        "source": "聖瑪竇福音 5:13–16",
+        "content": "耶穌稱門徒為地上的鹽、世界的光。信仰不是隱藏的裝飾，而要透過善行保存善、帶來光，使人歸光榮於天父。",
+        "youtube": ""
+      }
+    ]
+  },
+  {
+    "id": "A-OT6",
+    "year": "A",
+    "season": "常年期",
+    "title": "常年期第6主日",
+    "summary": "天主把生命與選擇放在人面前；耶穌把法律帶進內心，使我們不只守外在規定，更從心中選擇真理與愛。",
+    "readings": [
+      {
+        "type": "讀經一",
+        "source": "德訓篇 15:16–21",
+        "content": "天主把生死善惡放在人面前，尊重人的自由。真正的智慧是善用自由，選擇忠信與生命，而不把罪歸咎於天主。",
+        "youtube": ""
+      },
+      {
+        "type": "讀經二",
+        "source": "聖保祿宗徒致格林多人前書 2:6–10",
+        "content": "天主的智慧超越世俗權勢與眼前判斷；聖神使人逐漸明白天主為愛祂的人所準備的深奧恩典。",
+        "youtube": ""
+      },
+      {
+        "type": "福音",
+        "source": "聖瑪竇福音 5:17–37",
+        "content": "耶穌不是廢除法律，而是使法律達到圓滿。真正的義不只避免外在犯罪，更讓憤怒、慾望、誠信等內心領域也接受福音更新。",
+        "youtube": ""
+      }
+    ]
+  },
+  {
+    "id": "A-OT7",
+    "year": "A",
+    "season": "常年期",
+    "title": "常年期第7主日",
+    "summary": "「你們應是聖的」不只是一句理想；耶穌更把愛推向敵人，使基督徒以慈悲超越報復與仇恨。",
+    "readings": [
+      {
+        "type": "讀經一",
+        "source": "肋未紀 19:1–2, 17–18",
+        "content": "天主召叫子民成聖，不懷恨、不報復，並愛近人如己。聖德最具體的表現，常在如何處理衝突與傷害。",
+        "youtube": ""
+      },
+      {
+        "type": "讀經二",
+        "source": "聖保祿宗徒致格林多人前書 3:16–23",
+        "content": "我們是天主的宮殿，聖神住在我們內；因此不要被世俗智慧與派別佔有，而要記得一切屬於基督、基督屬於天主。",
+        "youtube": ""
+      },
+      {
+        "type": "福音",
+        "source": "聖瑪竇福音 5:38–48",
+        "content": "耶穌邀請門徒超越以牙還牙，甚至為仇人祈禱。基督徒的成全不是沒有界線，而是不讓仇恨決定自己的心。",
+        "youtube": ""
+      }
+    ]
+  },
+  {
+    "id": "A-OT8",
+    "year": "A",
+    "season": "常年期",
+    "title": "常年期第8主日",
+    "summary": "天主不會忘記祂的子女；當人先尋求天國與正義，就能逐漸從焦慮與物質奴役中得到自由。",
+    "readings": [
+      {
+        "type": "讀經一",
+        "source": "依撒意亞先知書 49:14–15",
+        "content": "即使熙雍以為自己被遺忘，天主仍以比母愛更堅定的愛保證：「我決不會忘記你。」信德從被天主記得的安全感開始。",
+        "youtube": ""
+      },
+      {
+        "type": "讀經二",
+        "source": "聖保祿宗徒致格林多人前書 4:1–5",
+        "content": "保祿提醒人做基督忠信的僕役與天主奧秘的管家，不急著以人的眼光互相判斷，因真正洞察人心的是上主。",
+        "youtube": ""
+      },
+      {
+        "type": "福音",
+        "source": "聖瑪竇福音 6:24–34",
+        "content": "人不能同時事奉天主與錢財。耶穌不是叫人不負責任，而是不要讓憂慮支配生命；先尋求天國和正義，其餘交託天父照顧。",
+        "youtube": ""
+      }
+    ]
+  },
+  {
+    "id": "A-OT9",
+    "year": "A",
+    "season": "常年期",
+    "title": "常年期第9主日",
+    "summary": "真正的信德不只說「主啊，主啊」，而是聽見並實行天主的話，把生命建立在堅固磐石上。",
+    "readings": [
+      {
+        "type": "讀經一",
+        "source": "申命紀 11:18, 26–28, 32",
+        "content": "梅瑟把祝福與詛咒、聽從與拒絕放在人民面前。天主的話需要放在心中並化成行動，生命的方向由每天選擇逐步形成。",
+        "youtube": ""
+      },
+      {
+        "type": "讀經二",
+        "source": "聖保祿宗徒致羅馬人書 3:21–25, 28",
+        "content": "人的成義不是靠自誇或功績，而是藉著耶穌基督的救贖、以信德領受天主白白的恩寵。",
+        "youtube": ""
+      },
+      {
+        "type": "福音",
+        "source": "聖瑪竇福音 7:21–27",
+        "content": "不是所有口稱「主啊」的人都真正活在天國中。聽見耶穌的話並實行的人，如同把房屋建在磐石上，能經得起風雨。",
+        "youtube": ""
+      }
+    ]
+  },
+  {
+    "id": "A-OT10",
+    "year": "A",
+    "season": "常年期",
+    "title": "常年期第10主日",
+    "summary": "天主要的是慈愛而不是空洞祭獻；耶穌走近罪人並召叫瑪竇，顯示恩寵能使人重新開始。",
+    "readings": [
+      {
+        "type": "讀經一",
+        "source": "歐瑟亞先知書 6:3–6",
+        "content": "天主所喜愛的是忠誠的愛與真正認識祂，而不是只有外在祭獻。宗教行為若沒有慈愛與真心，就失去核心。",
+        "youtube": ""
+      },
+      {
+        "type": "讀經二",
+        "source": "聖保祿宗徒致羅馬人書 4:18–25",
+        "content": "亞巴郎在看似沒有希望時仍相信天主的許諾。信德不是否認現實，而是在現實有限時仍把未來交託給天主。",
+        "youtube": ""
+      },
+      {
+        "type": "福音",
+        "source": "聖瑪竇福音 9:9–13",
+        "content": "耶穌召叫稅吏瑪竇，也與罪人同席。祂來不是為自以為健康的人，而是為需要醫治的人；門徒也被召叫學習慈悲。",
+        "youtube": ""
+      }
+    ]
+  },
+  {
+    "id": "A-OT11",
+    "year": "A",
+    "season": "常年期",
+    "title": "常年期第11主日",
+    "summary": "天主召叫祂的子民成為司祭的國家與聖潔民族；耶穌看見群眾的困苦，也派遣門徒把白白領受的恩典白白給人。",
+    "readings": [
+      {
+        "type": "讀經一",
+        "source": "出谷紀 19:2–6a",
+        "content": "天主把以色列帶到自己面前，召叫他們成為特選的產業、司祭的國家與聖潔民族。被選不是特權，而是服務與見證的使命。",
+        "youtube": ""
+      },
+      {
+        "type": "讀經二",
+        "source": "聖保祿宗徒致羅馬人書 5:6–11",
+        "content": "基督在我們仍是罪人時已為我們而死，顯示天主的愛先於人的功勞。與天主和好的人，也被召叫成為修和的工具。",
+        "youtube": ""
+      },
+      {
+        "type": "福音",
+        "source": "聖瑪竇福音 9:36–10:8",
+        "content": "耶穌看見群眾像沒有牧人的羊而動了慈心，便派遣十二宗徒。莊稼多而工人少；門徒白白領受，也要白白地給。",
+        "youtube": ""
+      }
+    ]
+  },
+  {
+    "id": "A-OT12",
+    "year": "A",
+    "season": "常年期",
+    "title": "常年期第12主日",
+    "summary": "面對反對與恐懼，天主仍與祂的僕人同在；耶穌邀請門徒不要害怕，勇敢在世人前承認祂。",
+    "readings": [
+      {
+        "type": "讀經一",
+        "source": "耶肋米亞先知書 20:10–13",
+        "content": "耶肋米亞被人攻擊與監視，仍相信上主像英勇的戰士與他同在。信德不是沒有壓力，而是在壓力中仍把自己的案件交給天主。",
+        "youtube": ""
+      },
+      {
+        "type": "讀經二",
+        "source": "聖保祿宗徒致羅馬人書 5:12–15",
+        "content": "罪與死亡藉一人進入世界，但基督所帶來的恩寵更為豐富。基督徒的希望不是否認罪，而是相信恩寵具有更大的力量。",
+        "youtube": ""
+      },
+      {
+        "type": "福音",
+        "source": "聖瑪竇福音 10:26–33",
+        "content": "耶穌三次鼓勵門徒不要害怕。天父連麻雀與我們的頭髮都知道；因此可以在壓力中勇敢承認基督，把生命交在父手中。",
+        "youtube": ""
+      }
+    ]
+  },
+  {
+    "id": "A-OT13",
+    "year": "A",
+    "season": "常年期",
+    "title": "常年期第13主日",
+    "summary": "資料整理中。此主日的讀經來源、靈修內容與 YouTube 將逐步補入。",
+    "status": "pending",
+    "readings": [
+      {
+        "type": "讀經一",
+        "source": "",
+        "content": "",
+        "youtube": ""
+      },
+      {
+        "type": "讀經二",
+        "source": "",
+        "content": "",
+        "youtube": ""
+      },
+      {
+        "type": "福音",
+        "source": "",
+        "content": "",
+        "youtube": ""
+      }
+    ]
+  },
+  {
+    "id": "A-OT14",
+    "year": "A",
+    "season": "常年期",
+    "title": "常年期第14主日",
+    "summary": "資料整理中。此主日的讀經來源、靈修內容與 YouTube 將逐步補入。",
+    "status": "pending",
+    "readings": [
+      {
+        "type": "讀經一",
+        "source": "",
+        "content": "",
+        "youtube": ""
+      },
+      {
+        "type": "讀經二",
+        "source": "",
+        "content": "",
+        "youtube": ""
+      },
+      {
+        "type": "福音",
+        "source": "",
+        "content": "",
+        "youtube": ""
+      }
+    ]
+  },
+  {
+    "id": "A-OT15",
+    "year": "A",
+    "season": "常年期",
+    "title": "常年期第15主日",
+    "summary": "資料整理中。此主日的讀經來源、靈修內容與 YouTube 將逐步補入。",
+    "status": "pending",
+    "readings": [
+      {
+        "type": "讀經一",
+        "source": "",
+        "content": "",
+        "youtube": ""
+      },
+      {
+        "type": "讀經二",
+        "source": "",
+        "content": "",
+        "youtube": ""
+      },
+      {
+        "type": "福音",
+        "source": "",
+        "content": "",
+        "youtube": ""
+      }
+    ]
+  },
+  {
+    "id": "A-OT16",
+    "year": "A",
+    "season": "常年期",
+    "title": "常年期第16主日",
+    "summary": "資料整理中。此主日的讀經來源、靈修內容與 YouTube 將逐步補入。",
+    "status": "pending",
+    "readings": [
+      {
+        "type": "讀經一",
+        "source": "",
+        "content": "",
+        "youtube": ""
+      },
+      {
+        "type": "讀經二",
+        "source": "",
+        "content": "",
+        "youtube": ""
+      },
+      {
+        "type": "福音",
+        "source": "",
+        "content": "",
+        "youtube": ""
+      }
+    ]
+  },
+  {
+    "id": "A-OT17",
+    "year": "A",
+    "season": "常年期",
+    "title": "常年期第17主日",
+    "summary": "資料整理中。此主日的讀經來源、靈修內容與 YouTube 將逐步補入。",
+    "status": "pending",
+    "readings": [
+      {
+        "type": "讀經一",
+        "source": "",
+        "content": "",
+        "youtube": ""
+      },
+      {
+        "type": "讀經二",
+        "source": "",
+        "content": "",
+        "youtube": ""
+      },
+      {
+        "type": "福音",
+        "source": "",
+        "content": "",
+        "youtube": ""
+      }
+    ]
+  },
+  {
+    "id": "A-OT18",
+    "year": "A",
+    "season": "常年期",
+    "title": "常年期第18主日",
+    "summary": "資料整理中。此主日的讀經來源、靈修內容與 YouTube 將逐步補入。",
+    "status": "pending",
+    "readings": [
+      {
+        "type": "讀經一",
+        "source": "",
+        "content": "",
+        "youtube": ""
+      },
+      {
+        "type": "讀經二",
+        "source": "",
+        "content": "",
+        "youtube": ""
+      },
+      {
+        "type": "福音",
+        "source": "",
+        "content": "",
+        "youtube": ""
+      }
+    ]
+  },
+  {
+    "id": "A-OT19",
+    "year": "A",
+    "season": "常年期",
+    "title": "常年期第19主日",
+    "summary": "資料整理中。此主日的讀經來源、靈修內容與 YouTube 將逐步補入。",
+    "status": "pending",
+    "readings": [
+      {
+        "type": "讀經一",
+        "source": "",
+        "content": "",
+        "youtube": ""
+      },
+      {
+        "type": "讀經二",
+        "source": "",
+        "content": "",
+        "youtube": ""
+      },
+      {
+        "type": "福音",
+        "source": "",
+        "content": "",
+        "youtube": ""
+      }
+    ]
+  },
+  {
+    "id": "A-OT20",
+    "year": "A",
+    "season": "常年期",
+    "title": "常年期第20主日",
+    "summary": "資料整理中。此主日的讀經來源、靈修內容與 YouTube 將逐步補入。",
+    "status": "pending",
+    "readings": [
+      {
+        "type": "讀經一",
+        "source": "",
+        "content": "",
+        "youtube": ""
+      },
+      {
+        "type": "讀經二",
+        "source": "",
+        "content": "",
+        "youtube": ""
+      },
+      {
+        "type": "福音",
+        "source": "",
+        "content": "",
+        "youtube": ""
+      }
+    ]
+  },
+  {
+    "id": "A-OT21",
+    "year": "A",
+    "season": "常年期",
+    "title": "常年期第21主日",
+    "summary": "資料整理中。此主日的讀經來源、靈修內容與 YouTube 將逐步補入。",
+    "status": "pending",
+    "readings": [
+      {
+        "type": "讀經一",
+        "source": "",
+        "content": "",
+        "youtube": ""
+      },
+      {
+        "type": "讀經二",
+        "source": "",
+        "content": "",
+        "youtube": ""
+      },
+      {
+        "type": "福音",
+        "source": "",
+        "content": "",
+        "youtube": ""
+      }
+    ]
+  },
+  {
+    "id": "A-OT22",
+    "year": "A",
+    "season": "常年期",
+    "title": "常年期第22主日",
+    "summary": "跟隨基督並非逃避十字架，而是在更新心思中分辨天主旨意，勇敢以生命回應祂。",
+    "readings": [
+      {
+        "type": "讀經一",
+        "source": "耶肋米亞先知書 20:7–9",
+        "content": "天主的召叫像火一樣在先知心中燃燒。即使使命帶來誤解與痛苦，耶肋米亞仍無法停止宣講；真正的召叫使人在困難中仍忠於天主。",
+        "youtube": ""
+      },
+      {
+        "type": "讀經二",
+        "source": "聖保祿宗徒致羅馬人書 12:1–2",
+        "content": "基督徒把整個生命獻給天主，不隨從世俗價值，而讓心思更新，好能分辨什麼是天主所喜悅的旨意。",
+        "youtube": ""
+      },
+      {
+        "type": "福音",
+        "source": "聖瑪竇福音 16:21–27",
+        "content": "耶穌邀請門徒背起自己的十字架跟隨祂。真正得著生命，不是緊抓自己，而是願意為基督與愛交出生命。",
+        "youtube": ""
+      }
+    ]
+  },
+  {
+    "id": "A-OT23",
+    "year": "A",
+    "season": "常年期",
+    "title": "常年期第23主日",
+    "summary": "愛近人也包含責任、勸勉、修和與共同祈禱；真正的團體不是沒有衝突，而是在基督內尋求修復。",
+    "readings": [
+      {
+        "type": "讀經一",
+        "source": "厄則克耳先知書 33:7–9",
+        "content": "天主立先知為守望者，提醒我們不能對別人的危險與錯誤完全冷漠；愛有時需要勇敢而負責地提醒。",
+        "youtube": ""
+      },
+      {
+        "type": "讀經二",
+        "source": "聖保祿宗徒致羅馬人書 13:8–10",
+        "content": "愛是法律的滿全。真正的愛不傷害近人，而把所有誡命帶回尊重、關懷與善待他人的核心。",
+        "youtube": ""
+      },
+      {
+        "type": "福音",
+        "source": "聖瑪竇福音 18:15–20",
+        "content": "耶穌教導門徒以漸進、尊重的方式處理衝突，目標不是定罪，而是贏回弟兄、重建團體；祂也應許臨在於共同祈禱的人中。",
+        "youtube": ""
+      }
+    ]
+  },
+  {
+    "id": "A-OT24",
+    "year": "A",
+    "season": "常年期",
+    "title": "常年期第24主日",
+    "summary": "被天主寬恕的人，也被召叫學習寬恕；怨恨會捆綁生命，慈悲則重新打開關係與自由。",
+    "readings": [
+      {
+        "type": "讀經一",
+        "source": "德訓篇 27:33–28:9",
+        "content": "忿怒與怨恨使人遠離智慧。記得自己的有限與天主的慈悲，能幫助我們停止報復，走向寬恕。",
+        "youtube": ""
+      },
+      {
+        "type": "讀經二",
+        "source": "聖保祿宗徒致羅馬人書 14:7–9",
+        "content": "我們無論生死都屬於主。生命不只是為自己而活；當基督成為中心，人就更能超越自我中心與計較。",
+        "youtube": ""
+      },
+      {
+        "type": "福音",
+        "source": "聖瑪竇福音 18:21–35",
+        "content": "無限次的寬恕不是否認傷害，而是記得自己先領受了天主無限的慈悲；被寬恕的人也要讓慈悲流向別人。",
+        "youtube": ""
+      }
+    ]
+  },
+  {
+    "id": "A-OT25",
+    "year": "A",
+    "season": "常年期",
+    "title": "常年期第25主日",
+    "summary": "天主的道路超越人的計算；祂的恩寵不是按人彼此比較的功勞分配，而是出於祂自由而慷慨的愛。",
+    "readings": [
+      {
+        "type": "讀經一",
+        "source": "依撒意亞先知書 55:6–9",
+        "content": "人的想法有限，天主的道路高過人的道路。尋求上主、離開惡道，是讓生命重新接受祂更大的眼光。",
+        "youtube": ""
+      },
+      {
+        "type": "讀經二",
+        "source": "聖保祿宗徒致斐理伯人書 1:20c–24, 27",
+        "content": "保祿把生死都放在基督內理解；無論生命長短，最重要的是活得相稱於福音，使基督在生命中受光榮。",
+        "youtube": ""
+      },
+      {
+        "type": "福音",
+        "source": "聖瑪竇福音 20:1–16a",
+        "content": "葡萄園工人的比喻揭示天主的慷慨。不要用比較與嫉妒衡量恩寵；天主的慈善遠超人的公平計算。",
+        "youtube": ""
+      }
+    ]
+  },
+  {
+    "id": "A-OT26",
+    "year": "A",
+    "season": "常年期",
+    "title": "常年期第26主日",
+    "summary": "真正的悔改不是口頭承諾，而是回頭、改心並行動；基督以謙卑與服從成為我們的榜樣。",
+    "readings": [
+      {
+        "type": "讀經一",
+        "source": "厄則克耳先知書 18:25–28",
+        "content": "過去的善不能代替今天的忠信，過去的錯也不是一生的判決；人若真心回轉、離開惡行，就重新走向生命。",
+        "youtube": ""
+      },
+      {
+        "type": "讀經二",
+        "source": "聖保祿宗徒致斐理伯人書 2:1–11",
+        "content": "基督自我空虛、取了僕人形體、服從至死。基督徒被召叫懷有基督的心，以謙卑、服務與愛生活。",
+        "youtube": ""
+      },
+      {
+        "type": "福音",
+        "source": "聖瑪竇福音 21:28–32",
+        "content": "兩個兒子的比喻提醒：天主看重的不是說得漂亮，而是願意回頭並真正實行父的旨意。",
+        "youtube": ""
+      }
+    ]
+  },
+  {
+    "id": "A-OT27",
+    "year": "A",
+    "season": "常年期",
+    "title": "常年期第27主日",
+    "summary": "生命是天主悉心栽培並交託的葡萄園；真正的信仰要結出正義、誠信、慈悲與愛的果實。",
+    "readings": [
+      {
+        "type": "讀經一",
+        "source": "依撒意亞先知書 5:1–7",
+        "content": "葡萄園之歌描寫天主悉心栽培祂的子民，卻期待不到正義的果實。恩典越多，也越召叫我們以生命回應。",
+        "youtube": ""
+      },
+      {
+        "type": "讀經二",
+        "source": "聖保祿宗徒致斐理伯人書 4:6–9",
+        "content": "把憂慮化成祈禱，以感恩交託天主，並讓思想停留在真、善、美與正義上，天主的平安就守護人的心。",
+        "youtube": ""
+      },
+      {
+        "type": "福音",
+        "source": "聖瑪竇福音 21:33–43",
+        "content": "惡園戶忘記自己只是受託者。生命、能力與資源都不是供人霸占，而是要忠實管理並向天主交出果實。",
+        "youtube": ""
+      }
+    ]
+  },
+  {
+    "id": "A-OT28",
+    "year": "A",
+    "season": "常年期",
+    "title": "常年期第28主日",
+    "summary": "天主已預備救恩的盛宴；我們不要被忙碌、物質或自己的計畫綁住，而要自由地接受並活出這份邀請。",
+    "readings": [
+      {
+        "type": "讀經一",
+        "source": "依撒意亞先知書 25:6–10a",
+        "content": "天主為萬民預備盛宴，除去遮蔽、消滅死亡、擦乾眼淚。基督徒相信痛苦與死亡都不是最後一句話。",
+        "youtube": ""
+      },
+      {
+        "type": "讀經二",
+        "source": "聖保祿宗徒致斐理伯人書 4:12–14, 19–20",
+        "content": "保祿學會在富足與匱乏中都依靠基督。真正的力量不是環境永遠順利，而是在各種境況中仍忠信站立。",
+        "youtube": ""
+      },
+      {
+        "type": "福音",
+        "source": "聖瑪竇福音 22:1–14",
+        "content": "婚宴比喻顯示天主已主動發出邀請。恩典白白給予，但接受邀請也意味著願意讓生命被改變，活得與天國相稱。",
+        "youtube": ""
+      }
+    ]
+  },
+  {
+    "id": "A-OT29",
+    "year": "A",
+    "season": "常年期",
+    "title": "常年期第29主日",
+    "summary": "世上的權力都有其位置，但只有天主是生命與歷史真正的主；基督徒在世界中盡責，也把最終忠誠歸給天主。",
+    "readings": [
+      {
+        "type": "讀經一",
+        "source": "依撒意亞先知書 45:1, 4–6",
+        "content": "天主甚至能使用不認識祂的居魯士完成救恩計畫。祂的攝理超越人的界線與預期，歷史真正的主權屬於上主。",
+        "youtube": ""
+      },
+      {
+        "type": "讀經二",
+        "source": "聖保祿宗徒致得撒洛尼人前書 1:1–5a",
+        "content": "真正的信仰會留下生命痕跡：信德產生行動，愛德願意付出，望德使人在困難中堅忍。",
+        "youtube": ""
+      },
+      {
+        "type": "福音",
+        "source": "聖瑪竇福音 22:15–21",
+        "content": "凱撒的歸凱撒，天主的歸天主。基督徒履行合理的公共責任，但人的良心、尊嚴與整個生命最終屬於天主。",
+        "youtube": ""
+      }
+    ]
+  },
+  {
+    "id": "A-OT30",
+    "year": "A",
+    "season": "常年期",
+    "title": "常年期第30主日",
+    "summary": "愛天主與愛近人不能分開；真正的信仰特別看見弱小者，並讓愛在具體生活與見證中被看見。",
+    "readings": [
+      {
+        "type": "讀經一",
+        "source": "出谷紀 22:20–26",
+        "content": "天主特別關心外方人、寡婦、孤兒與窮人。敬愛天主必須化成正義、尊重與保護弱小者的具體行動。",
+        "youtube": ""
+      },
+      {
+        "type": "讀經二",
+        "source": "聖保祿宗徒致得撒洛尼人前書 1:5c–10",
+        "content": "福音不只在言語，也在聖神與生命中成為力量。真正接受福音的人，在患難中仍有希望，並以生活成為別人的榜樣。",
+        "youtube": ""
+      },
+      {
+        "type": "福音",
+        "source": "聖瑪竇福音 22:34–40",
+        "content": "耶穌把全部法律與先知濃縮為兩條誡命：全心愛天主，並愛近人如自己。整個信仰最後都要活成愛。",
+        "youtube": ""
+      }
+    ]
+  },
+  {
+    "id": "A-OT31",
+    "year": "A",
+    "season": "常年期",
+    "title": "常年期第31主日",
+    "summary": "資料整理中。此主日的讀經來源、靈修內容與 YouTube 將逐步補入。",
+    "status": "pending",
+    "readings": [
+      {
+        "type": "讀經一",
+        "source": "",
+        "content": "",
+        "youtube": ""
+      },
+      {
+        "type": "讀經二",
+        "source": "",
+        "content": "",
+        "youtube": ""
+      },
+      {
+        "type": "福音",
+        "source": "",
+        "content": "",
+        "youtube": ""
+      }
+    ]
+  },
+  {
+    "id": "A-OT32",
+    "year": "A",
+    "season": "常年期",
+    "title": "常年期第32主日",
+    "summary": "真正的智慧，是懷著復活希望清醒地活好今天，像明智童女一樣在日常中預備心燈，等待與主相遇。",
+    "readings": [
+      {
+        "type": "讀經一",
+        "source": "智慧篇 6:12–16",
+        "content": "智慧光明而不暗淡，主動迎接真心尋找她的人。真正的智慧使人安靜、分辨，並在每天選擇中看清天主的方向。",
+        "youtube": ""
+      },
+      {
+        "type": "讀經二",
+        "source": "聖保祿宗徒致得撒洛尼人前書 4:13–18",
+        "content": "基督徒也會因死亡悲傷，卻不像沒有希望的人；因為耶穌已死而復活，我們期待最終永遠與主同在。",
+        "youtube": ""
+      },
+      {
+        "type": "福音",
+        "source": "聖瑪竇福音 25:1–13",
+        "content": "十個童女的比喻提醒：真正的智慧是在平常就備好油，以祈禱、信德、愛德與忠實保持心燈明亮，隨時迎接新郎。",
+        "youtube": ""
+      }
+    ]
+  },
+  {
+    "id": "A-OT33",
+    "year": "A",
+    "season": "常年期",
+    "title": "常年期第33主日",
+    "summary": "資料整理中。此主日的讀經來源、靈修內容與 YouTube 將逐步補入。",
+    "status": "pending",
+    "readings": [
+      {
+        "type": "讀經一",
+        "source": "",
+        "content": "",
+        "youtube": ""
+      },
+      {
+        "type": "讀經二",
+        "source": "",
+        "content": "",
+        "youtube": ""
+      },
+      {
+        "type": "福音",
+        "source": "",
+        "content": "",
+        "youtube": ""
+      }
+    ]
+  },
+  {
+    "id": "A-OT34",
+    "year": "A",
+    "season": "常年期",
+    "title": "常年期第34主日",
+    "summary": "資料整理中。此主日的讀經來源、靈修內容與 YouTube 將逐步補入。",
+    "status": "pending",
+    "readings": [
+      {
+        "type": "讀經一",
+        "source": "",
+        "content": "",
+        "youtube": ""
+      },
+      {
+        "type": "讀經二",
+        "source": "",
+        "content": "",
+        "youtube": ""
+      },
+      {
+        "type": "福音",
+        "source": "",
+        "content": "",
+        "youtube": ""
+      }
+    ]
+  },
+  {
+    "id": "FEAST-ALL-SAINTS",
+    "year": "FEAST",
+    "season": "諸聖節",
+    "title": "諸聖節",
+    "summary": "我們已是天主的子女，也蒙召走真福八端的道路；靠著基督救恩與恩寵，逐漸肖似祂，最後加入諸聖的行列。",
+    "readings": [
+      {
+        "type": "讀經一",
+        "source": "若望默示錄 7:3–4, 9–14",
+        "content": "若望看見無數來自各民族的人穿著白衣站在天主與羔羊前。成聖不是少數人的特權，而是所有天主子民共同的召叫。",
+        "youtube": ""
+      },
+      {
+        "type": "讀經二",
+        "source": "聖若望一書 3:1–3",
+        "content": "天父以大愛使我們成為祂的子女。基督徒懷著將來完全肖似基督的希望，在今天就接受恩寵的潔淨與更新。",
+        "youtube": ""
+      },
+      {
+        "type": "福音",
+        "source": "聖瑪竇福音 5:1–12a",
+        "content": "真福八端是耶穌自己的生命肖像，也是成聖道路：神貧、溫良、慕義、憐憫、心潔、和平與在考驗中忠信。",
+        "youtube": ""
+      }
+    ]
+  }
+];
+
+const YEAR_META = {
+  A:{name:'甲年 Year A',desc:'甲年依禮儀期分為將臨期、聖誕期、四旬期、復活期與常年期。本站已先補入主受洗節（常年期第1週開始）及常年期第2–12主日的讀經來源與原創內容摘要；YouTube 尚未製作的主日保持空白。您已完成的後段主日內容也完整保留。'},
+  B:{name:'乙年 Year B',desc:'乙年資料架構已建立。後續可逐主日加入讀經一、讀經二、福音、內容整理與 YouTube。'},
+  C:{name:'丙年 Year C',desc:'丙年資料架構已建立。後續可逐主日加入讀經一、讀經二、福音、內容整理與 YouTube。'},
+  FEAST:{name:'節日 Feasts',desc:'收錄諸聖節等重要節日；可依需要繼續新增節日讀經與影片。'}
+};
+
+let data = JSON.parse(JSON.stringify(BASE_DATA));
+let currentYear = 'A';
+let adminMode = false;
+
+const masses = document.getElementById('masses');
+const yearIntro = document.getElementById('yearIntro');
+const search = document.getElementById('search');
+const seasonFilter = document.getElementById('seasonFilter');
+const adminBar = document.getElementById('adminBar');
+const addZone = document.getElementById('addZone');
+
+function esc(s=''){return String(s).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
+function isYouTubeUrl(v){return !v || /^https?:\/\/(www\.)?(youtube\.com|youtu\.be)\//i.test(v)}
+function ytButton(url){return url?`<a class="yt-link" href="${esc(url)}" target="_blank" rel="noopener">▶ YouTube</a>`:''}
+function badgeFor(x){if(x.status==='pending') return '待補'; if(x.year==='FEAST') return '節日'; const m=x.title.match(/第(\d+)主日/); return m?`第${m[1]}主日`:x.season}
+
+function saveLocal(){localStorage.setItem(STORAGE_KEY,JSON.stringify(data));}
+function loadLocal(){try{const s=localStorage.getItem(STORAGE_KEY); if(s)data=JSON.parse(s)}catch(e){console.warn(e)}}
+
+const SEASON_ORDER=['將臨期','聖誕期','四旬期','復活期','常年期'];
+const SEASON_INFO={
+  '將臨期':{icon:'🕯️',cls:'advent',desc:'期待基督來臨，在醒寤、希望與皈依中準備心靈。'},
+  '聖誕期':{icon:'⭐',cls:'christmas',desc:'慶祝聖言降生成人，默觀天主進入人類歷史、與我們同住。'},
+  '四旬期':{icon:'🌿',cls:'lent',desc:'以祈禱、守齋、愛德與悔改更新生命，走向逾越奧蹟。'},
+  '復活期':{icon:'☀️',cls:'easter',desc:'慶祝基督戰勝死亡，在復活、聖神與使命中活出新生命。'},
+  '常年期':{icon:'🌱',cls:'ordinary',desc:'在日常生活中跟隨基督，讓福音逐步塑造思想、關係與行動。'}
+};
+function buildSeasonFilter(){
+  let seasons=[...new Set(data.filter(x=>x.year===currentYear).map(x=>x.season).filter(Boolean))];
+  if(currentYear==='A') seasons=SEASON_ORDER;
+  const cur=seasonFilter.value;
+  seasonFilter.innerHTML='<option value="">全部禮儀期</option>'+seasons.map(x=>`<option value="${esc(x)}">${esc(x)}</option>`).join('');
+  if(seasons.includes(cur))seasonFilter.value=cur;
+}
+
+function renderReading(r, massIndex, readingIndex){
+  if(adminMode){
+    return `<article class="reading"><div class="reading-type">${esc(r.type)}</div><div class="edit-grid">
+      <input class="edit-source" data-mi="${massIndex}" data-ri="${readingIndex}" value="${esc(r.source)}" placeholder="經文來源">
+      <textarea class="edit-content" data-mi="${massIndex}" data-ri="${readingIndex}" placeholder="內容／默想">${esc(r.content)}</textarea>
+      <input class="edit-youtube" data-mi="${massIndex}" data-ri="${readingIndex}" value="${esc(r.youtube)}" placeholder="YouTube URL">
+    </div></article>`;
+  }
+  return `<article class="reading"><div class="reading-head"><div class="reading-type">${esc(r.type)}</div></div>
+    <div class="source">${esc(r.source||'經文來源待補')}</div>
+    <div class="content">${esc(r.content||'內容待補')}</div>${ytButton(r.youtube)}</article>`;
+}
+
+function filteredItems(){
+  const q=search.value.trim().toLowerCase(); const sf=seasonFilter.value;
+  return data.map((x,i)=>({x,i})).filter(({x})=>x.year===currentYear).filter(({x})=>!sf||x.season===sf).filter(({x})=>{
+    if(!q)return true; const hay=[x.title,x.season,x.summary,...x.readings.flatMap(r=>[r.type,r.source,r.content,r.youtube])].join(' ').toLowerCase(); return hay.includes(q);
+  });
+}
+
+function renderMassCard(x,i){
+  const massEdit=adminMode?`<div class="mass-edit" style="display:grid;gap:8px;margin:14px 0">
+      <input class="edit-title" data-mi="${i}" value="${esc(x.title)}" placeholder="主日／節日名稱">
+      <select class="edit-season" data-mi="${i}"><option>${esc(x.season)}</option><option>將臨期</option><option>聖誕期</option><option>常年期</option><option>四旬期</option><option>聖週</option><option>復活期</option><option>節日</option></select>
+      <textarea class="edit-summary" data-mi="${i}" placeholder="本主日摘要">${esc(x.summary)}</textarea>
+      <div class="reading-actions"><button class="danger delete-mass" data-mi="${i}">刪除此筆</button></div>
+    </div>`:'';
+  const pending=x.status==='pending';
+  const sources=x.readings.map(r=>r.source).filter(Boolean);
+  const sub=pending?`${x.season} · 經文與內容待補`:`${x.season} · ${sources.join(' ｜ ')}`;
+  return `<details class="mass${pending?' pending':''}" ${pending?'':'open'}><summary><div class="mass-badge">${esc(badgeFor(x))}</div><div><div class="mass-title">${esc(x.title)}</div><div class="mass-sub">${esc(sub)}</div></div><div class="chev">›</div></summary>
+      <div class="mass-body">${massEdit}<div class="mass-summary">${esc(x.summary)}</div><div class="readings">${x.readings.map((r,ri)=>renderReading(r,i,ri)).join('')}</div></div></details>`;
+}
+
+function render(){
+  document.querySelectorAll('.year-tab').forEach(b=>b.classList.toggle('active',b.dataset.year===currentYear));
+  const meta=YEAR_META[currentYear]; yearIntro.innerHTML=`<strong>${esc(meta.name)}</strong><br>${esc(meta.desc)}`;
+  buildSeasonFilter(); addZone.hidden=!adminMode;
+  const items=filteredItems();
+  if(currentYear==='A'){
+    const activeSeasons=seasonFilter.value?[seasonFilter.value]:SEASON_ORDER;
+    const searching=!!search.value.trim();
+    let sections=[];
+    activeSeasons.forEach(season=>{
+      const info=SEASON_INFO[season]||{icon:'•',cls:'ordinary',desc:''};
+      const sitems=items.filter(({x})=>x.season===season);
+      if(searching && !sitems.length) return;
+      let note='';
+      if(season==='聖誕期') note='<div class="season-note">主受洗節標示為「常年期第1主日／第1週開始」，並列在聖誕期結束處；之後進入常年期第2主日起的主日讀經。</div>';
+      const body=sitems.length?sitems.map(({x,i})=>renderMassCard(x,i)).join(''):`<div class="season-empty">此禮儀期的甲年主日內容將逐步加入；目前先保留清楚的年度架構。</div>`;
+      sections.push(`<section class="season-section" data-season="${esc(season)}"><div class="season-heading ${info.cls}"><div class="season-icon">${info.icon}</div><div><h2>${esc(season)}</h2><p>${esc(info.desc)}</p></div></div>${note}${body}</section>`);
+    });
+    masses.innerHTML=sections.length?sections.join(''):`<div class="empty">沒有符合搜尋條件的內容。</div>`;
+  } else {
+    if(!items.length){masses.innerHTML=`<div class="empty">${adminMode?'目前沒有資料。可按「新增本禮儀年主日／節日」建立第一筆。':'本禮儀年的內容尚在整理中。'}</div>`;return}
+    masses.innerHTML=items.map(({x,i})=>renderMassCard(x,i)).join('');
+  }
+  if(adminMode) bindAdminEditors();
+}
+
+function bindAdminEditors(){
+  document.querySelectorAll('.edit-title').forEach(el=>el.addEventListener('input',e=>{data[+e.target.dataset.mi].title=e.target.value}));
+  document.querySelectorAll('.edit-season').forEach(el=>el.addEventListener('change',e=>{data[+e.target.dataset.mi].season=e.target.value}));
+  document.querySelectorAll('.edit-summary').forEach(el=>el.addEventListener('input',e=>{data[+e.target.dataset.mi].summary=e.target.value}));
+  document.querySelectorAll('.edit-source').forEach(el=>el.addEventListener('input',e=>{data[+e.target.dataset.mi].readings[+e.target.dataset.ri].source=e.target.value}));
+  document.querySelectorAll('.edit-content').forEach(el=>el.addEventListener('input',e=>{data[+e.target.dataset.mi].readings[+e.target.dataset.ri].content=e.target.value}));
+  document.querySelectorAll('.edit-youtube').forEach(el=>el.addEventListener('input',e=>{data[+e.target.dataset.mi].readings[+e.target.dataset.ri].youtube=e.target.value}));
+  document.querySelectorAll('.delete-mass').forEach(el=>el.addEventListener('click',e=>{if(confirm('確定刪除此主日／節日？')){data.splice(+e.target.dataset.mi,1);saveLocal();render()}}));
+}
+
+function addMass(){
+  const id=`${currentYear}-${Date.now()}`;
+  const season=currentYear==='FEAST'?'節日':'常年期';
+  data.push({id,year:currentYear,season,title:currentYear==='FEAST'?'新節日':'新主日',summary:'',readings:[
+    {type:'讀經一',source:'',content:'',youtube:''},{type:'讀經二',source:'',content:'',youtube:''},{type:'福音',source:'',content:'',youtube:''}
+  ]});
+  saveLocal();render();
+}
+
+function makeDownloadHtml(){
+  const clone=document.documentElement.cloneNode(true);
+  const bar=clone.querySelector('#adminBar'); if(bar)bar.hidden=true;
+  const az=clone.querySelector('#addZone'); if(az)az.hidden=true;
+  clone.querySelectorAll('dialog[open]').forEach(d=>d.removeAttribute('open'));
+  const container=clone.querySelector('#masses'); if(container)container.innerHTML='';
+  const intro=clone.querySelector('#yearIntro'); if(intro)intro.innerHTML='';
+  const sf=clone.querySelector('#seasonFilter'); if(sf)sf.innerHTML='<option value="">全部禮儀期</option>';
+  const sb=clone.querySelector('#search'); if(sb)sb.value='';
+  let html='<!DOCTYPE html>\n'+clone.outerHTML;
+  const safe=JSON.stringify(data,null,2).replace(/</g,'\\u003c');
+  html=html.replace(/const BASE_DATA = \[[\s\S]*?\n\];\n\nconst YEAR_META/,'const BASE_DATA = '+safe+';\n\nconst YEAR_META');
+  return html;
+}
+
+function download(name,text,type='text/html;charset=utf-8'){
+  const blob=new Blob([text],{type}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+}
+
+document.querySelectorAll('.year-tab').forEach(b=>b.addEventListener('click',()=>{currentYear=b.dataset.year;search.value='';seasonFilter.value='';render()}));
+search.addEventListener('input',render); seasonFilter.addEventListener('change',render);
+document.getElementById('openAll').addEventListener('click',()=>document.querySelectorAll('details.mass').forEach(d=>d.open=true));
+document.getElementById('closeAll').addEventListener('click',()=>document.querySelectorAll('details.mass').forEach(d=>d.open=false));
+
+document.getElementById('seriesBtn').addEventListener('click',()=>document.getElementById('seriesDialog').showModal());
+document.getElementById('seriesClose').addEventListener('click',()=>document.getElementById('seriesDialog').close());
+document.getElementById('adminBtn').addEventListener('click',()=>{document.getElementById('adminPassword').value='';document.getElementById('adminError').textContent='';document.getElementById('adminDialog').showModal()});
+document.getElementById('adminCancel').addEventListener('click',()=>document.getElementById('adminDialog').close());
+document.getElementById('adminUnlock').addEventListener('click',async()=>{
+  const p=document.getElementById('adminPassword').value;
+  const errorEl=document.getElementById('adminError');
+  errorEl.textContent='';
+  try{
+    const hash=await sha256Hex(p);
+    if(hash!==ADMIN_PASSWORD_HASH){errorEl.textContent='密碼不正確。';return}
+    adminMode=true;adminBar.hidden=false;document.getElementById('adminDialog').close();render();
+  }catch(e){
+    errorEl.textContent='此瀏覽器無法啟用管理員登入，請改用最新版 Chrome、Edge 或 Safari。';
+  }
+});
+document.getElementById('exitAdmin').addEventListener('click',()=>{adminMode=false;adminBar.hidden=true;render()});
+document.getElementById('saveData').addEventListener('click',()=>{
+  const bad=data.flatMap(x=>x.readings).filter(r=>!isYouTubeUrl(r.youtube)); if(bad.length){alert('有 YouTube 網址格式不正確，請先修正。');return}
+  data.forEach(x=>{if(x.status==='pending' && x.readings.some(r=>r.source.trim()||r.content.trim()||r.youtube.trim())) delete x.status;});
+  saveLocal();alert('修改已儲存在此瀏覽器。');render();
+});
+document.getElementById('downloadHtml').addEventListener('click',()=>{
+  const bad=data.flatMap(x=>x.readings).filter(r=>!isYouTubeUrl(r.youtube)); if(bad.length){alert('有 YouTube 網址格式不正確，請先修正。');return}
+  saveLocal();download('index.html',makeDownloadHtml());
+});
+document.getElementById('addMass').addEventListener('click',addMass);
+
+loadLocal();render();
+</script>
+</body>
+</html>
